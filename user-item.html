@@ -1,0 +1,21 @@
+<div class="list-group-item" ng-repeat="user in webapp.users" 
+	href ng-click="userCtrl.selectUser(user)" 
+	ng-class="{ active : userCtrl.isSelected(user)}">
+	<!-- User name -->
+	<h4>
+		{{user.name.last | uppercase}}, {{user.name.first}}<em class="pull-right">Cell: {{user.cell}}</em>
+	</h4>
+	<!-- User picture -->
+	<div class="img-wrap">
+		<img ng-src="{{user.picture.thumbnail}}"/>
+	</div>
+	<div ng-show="userCtrl.isSelected(user)">			
+		<h1 class="page-header text-center">
+			{{ user.name.last | uppercase}}, {{user.name.first}}
+		</h1>
+		<div class="img-wrap text-center">
+			<img ng-src="{{user.picture.large}}"/>
+		</div>
+		<user-form></user-form>
+	</div>
+</div>
